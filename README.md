@@ -7,8 +7,8 @@ This is an educational repository for learning about ART algorithms, mainly thro
 - [AudeyART](#audeyart)
   - [Table of Contents](#table-of-contents)
   - [Usage](#usage)
-  - [Requirements Description](#requirements-description)
   - [File Structure](#file-structure)
+  - [Requirements Description](#requirements-description)
 
 ## Usage
 
@@ -37,6 +37,30 @@ pip install -r requirements.txt
 > [!note]
 > Read through the [Requirements Description](#requirements-description) to get an understanding of what each dependency is used for and get links to their respective documentations.
 
+
+## File Structure
+
+This section outlines the location and meaning of the files in this repo:
+
+- [`iris/`](iris): a download of the Iris flower dataset from [UCI machine learning data repository](https://archive.ics.uci.edu/dataset/53/iris).
+  - [`bezdekIris.data`](iris/bezdekiris.data): a version of the data that presumably [Jim Bezdek](https://scholar.google.com/citations?user=kXy4LAMAAAAJ&hl=en).
+  - [`Index`](iris/Index): some timestamps of versions of the dataset.
+  - [`iris.data`](iris/iris.data): the dataset itself as a comma-separated values (CSV) file.
+  - [`iris.names`](iris/iris.names): citations and descriptions of the elements of the dataset.
+- [`.gitignore`](.gitignore): a file with patterns that are ignored by git tracking.
+- [`audeyart.ipynb`](audeyart.ipynb): an IPython notebook (a.k.a. jupyter notebook) containing the main pedagogical material.
+This includes:
+    1. How to write up a FuzzyART module.
+    2. How to load the Iris dataset with [`pandas`](https://pandas.pydata.org).
+    3. How to cluster the Iris dataset with FuzzyART.
+    4. How to visualize the results with [TSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html).
+- [`audeyart-original.ipynb`](audeyart-original.ipynb): the original notebook used as an exercise for implementing FuzzyART (without added documentation).
+- [`LICENSE`](LICENSE): a text file containing the MIT license for the repo, indicating that this software is free for anyone to use in anyway with no liability attributable to the authors.
+This is a common license for open-source software that allows other people to use and even profit from your work without being able to blame you when they break stuff.
+- [`README.md`](README.md): this file.
+Readme's are the most common top-level description of software repositories, and they are the best first place to describe your work to someone who would actually use it.
+- [`requirements.txt`](requirements.txt): the pip requirements file containing all of the Python dependencies for the project.
+
 ## Requirements Description
 
 The pip requirements under the `requirements.txt` file are listed below.
@@ -56,25 +80,3 @@ This wasn't used in the written example, but it is included because almost every
 - [`pandas`][pandas-docs]: provides the `DataFrame` datatype for Python and all of the utilities therein to load, parse, and handle tabular data.
 - [`scikit-learn`][scikit-learn-docs]: the traditional machine learning toolset for Python.
 Most of the _de facto_ machine learning techniques that aren't deep learning are already implemented here.
-
-## File Structure
-
-This section outlines the location and meaning of the files in this repo:
-
-- `iris/`: a download of the Iris flower dataset from [UCI machine learning data repository](https://archive.ics.uci.edu/dataset/53/iris).
-  - `bezdekIris.data`: a version of the data that presumably [Jim Bezdek](https://scholar.google.com/citations?user=kXy4LAMAAAAJ&hl=en).
-  - `Index`: some timestamps of versions of the dataset.
-  - `iris.data`: the dataset itself as a comma-separated values (CSV) file.
-  - `iris.names`: citations and descriptions of the elements of the dataset.
-- `.gitignore`: a file with patterns that are ignored by git tracking.
-- `audeyart.ipynb`: an IPython notebook (a.k.a. jupyter notebook) containing the main pedagogical material.
-This includes:
-    1. How to write up a FuzzyART module.
-    2. How to load the Iris dataset with [`pandas`](https://pandas.pydata.org).
-    3. How to cluster the Iris dataset with FuzzyART.
-    4. How to visualize the results with [TSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html).
-- `LICENSE`: a text file containing the MIT license for the repo, indicating that this software is free for anyone to use in anyway with no liability attributable to the authors.
-This is a common license for open-source software that allows other people to use and even profit from your work without being able to blame you when they break stuff.
-- `README.md`: this file.
-Readme's are the most common top-level description of software repositories, and they are the best first place to describe your work to someone who would actually use it.
-- `requirements.txt`: the pip requirements file containing all of the Python dependencies for the project.
