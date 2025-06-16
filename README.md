@@ -37,7 +37,6 @@ pip install -r requirements.txt
 > [!note]
 > Read through the [Requirements Description](#requirements-description) to get an understanding of what each dependency is used for and get links to their respective documentations.
 
-
 ## File Structure
 
 This section outlines the location and meaning of the files in this repo:
@@ -68,6 +67,7 @@ For convenience, the documentation for each is linked.
 
 [pytorch-docs]: https://docs.pytorch.org/docs/stable/index.html
 [torchvision-docs]: https://docs.pytorch.org/vision/stable/index.html
+[matplotlib-docs]: https://matplotlib.org/stable/users/index
 [jupyterlab-docs]: https://docs.jupyter.org/en/latest/
 [pandas-docs]: https://pandas.pydata.org/docs/
 [scikit-learn-docs]: https://scikit-learn.org/stable/
@@ -76,7 +76,7 @@ For convenience, the documentation for each is linked.
 - [`torchvision`][torchvision-docs]: PyTorch's separate library for handling vision dataset pipelines, transformations, etc.
 This wasn't used in the written example, but it is included because almost everything else we will write includes its functionality when working with bigger datasets.
 - [`jupyterlab`][jupyterlab-docs]: an all-in-one dependency for installing an IPython kernel and the notebook environment.
-- `matplotlib`: the most comprehensive plotting library in Python.
+- [`matplotlib`][matplotlib-docs]: the most comprehensive plotting library in Python.
 - [`pandas`][pandas-docs]: provides the `DataFrame` datatype for Python and all of the utilities therein to load, parse, and handle tabular data.
 - [`scikit-learn`][scikit-learn-docs]: the traditional machine learning toolset for Python.
 Most of the _de facto_ machine learning techniques that aren't deep learning are already implemented here.
