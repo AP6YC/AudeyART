@@ -41,19 +41,23 @@ pip install -r requirements.txt
 
 This section outlines the location and meaning of the files in this repo:
 
-- [`iris/`](iris): a download of the Iris flower dataset from [UCI machine learning data repository](https://archive.ics.uci.edu/dataset/53/iris).
-  - [`bezdekIris.data`](iris/bezdekiris.data): a version of the data that presumably [Jim Bezdek](https://scholar.google.com/citations?user=kXy4LAMAAAAJ&hl=en).
-  - [`Index`](iris/Index): some timestamps of versions of the dataset.
-  - [`iris.data`](iris/iris.data): the dataset itself as a comma-separated values (CSV) file.
-  - [`iris.names`](iris/iris.names): citations and descriptions of the elements of the dataset.
+- [`data/`](data)
+  - [`iris/`](data/iris): a download of the Iris flower dataset from [UCI machine learning data repository](https://archive.ics.uci.edu/dataset/53/iris).
+    - [`bezdekIris.data`](data/iris/bezdekiris.data): a version of the data that presumably [Jim Bezdek](https://scholar.google.com/citations?user=kXy4LAMAAAAJ&hl=en).
+    - [`Index`](data/iris/Index): some timestamps of versions of the dataset.
+    - [`iris.data`](data/iris/iris.data): the dataset itself as a comma-separated values (CSV) file.
+    - [`iris.names`](data/iris/iris.names): citations and descriptions of the elements of the dataset.
+- [notebooks](notebooks)
+  - [`audeyart.ipynb`](notebooks/audeyart.ipynb): an IPython notebook (a.k.a. jupyter notebook) containing the main pedagogical material.
+  This includes:
+      1. How to write up a FuzzyART module.
+      2. How to load the Iris dataset with [`pandas`](https://pandas.pydata.org).
+      3. How to cluster the Iris dataset with FuzzyART.
+      4. How to visualize the results with [TSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html).
+  - [`audeyart-original.ipynb`](notebooks/audeyart-original.ipynb): the original notebook used as an exercise for implementing FuzzyART (without added documentation).
+  - [`supervised.ipynb`](notebooks/supervised.ipynb): an implementation of a simple FuzzyARTMAP (i.e., a simple supervised variant of FuzzyART).
+- [`.flake8`](.flake8): some custom Python [Flake8](https://flake8.pycqa.org/en/latest/) linting preferences, such as the config to make `flake8` stop yelling if lines are longer than a meager 80 characters.
 - [`.gitignore`](.gitignore): a file with patterns that are ignored by git tracking.
-- [`audeyart.ipynb`](audeyart.ipynb): an IPython notebook (a.k.a. jupyter notebook) containing the main pedagogical material.
-This includes:
-    1. How to write up a FuzzyART module.
-    2. How to load the Iris dataset with [`pandas`](https://pandas.pydata.org).
-    3. How to cluster the Iris dataset with FuzzyART.
-    4. How to visualize the results with [TSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html).
-- [`audeyart-original.ipynb`](audeyart-original.ipynb): the original notebook used as an exercise for implementing FuzzyART (without added documentation).
 - [`LICENSE`](LICENSE): a text file containing the MIT license for the repo, indicating that this software is free for anyone to use in anyway with no liability attributable to the authors.
 This is a common license for open-source software that allows other people to use and even profit from your work without being able to blame you when they break stuff.
 - [`README.md`](README.md): this file.
