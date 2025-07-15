@@ -2,12 +2,16 @@
 A module containing all of the pedagogical FuzzyART material.
 """
 
+# -----------------------------------------------------------------------------
 # STDLIB IMPORTS
+# -----------------------------------------------------------------------------
 
 # For manipulating local paths in an object-oriented way
 from pathlib import Path
 
+# -----------------------------------------------------------------------------
 # 3RD PARTY IMPORTS
+# -----------------------------------------------------------------------------
 
 # The PyTorch library containing neural network utilities and the Tensor datatype
 import torch
@@ -33,6 +37,10 @@ from matplotlib import ticker
 
 # An IPython magic syntax that tells matplotlib to plot in a new cell instead of a new window
 # %matplotlib inline
+
+# -----------------------------------------------------------------------------
+# CLASSES
+# -----------------------------------------------------------------------------
 
 
 class DataContainer():
@@ -79,10 +87,10 @@ class AudeyART():
     # The constructor will be where we pass the hyperparameters necessary for the FuzzyART module to work.
     def __init__(
         self,
-        dim: int,           # The original dimension of the data
-        rho: float = 0.6,     # The vigilance parameter in [0, 1]
-        beta: float = 0.5,    # The learning rate in [0, 1]
-        alpha: float = 0.001  # The choice parameter (close to zero)
+        dim: int,               # The original dimension of the data
+        rho: float = 0.6,       # The vigilance parameter in [0, 1]
+        beta: float = 0.5,      # The learning rate in [0, 1]
+        alpha: float = 0.001    # The choice parameter (close to zero)
     ):
         # The weights with be of shape [n_categories, 2 * n_dimensions] for complement coded samples
         # NOTE: we start with weights of size [0, 8] with an uninitialized number of categories but known complement-coded dimension length
@@ -280,6 +288,10 @@ class AudeyART():
 
 # Here, we make a couple of helper functions to set up the plot
 
+# -----------------------------------------------------------------------------
+# FUNCTIONS
+# -----------------------------------------------------------------------------
+
 
 # Scatters points TSNE points and colors according to label
 def add_2d_scatter(ax, points, colors, title=None):
@@ -289,9 +301,11 @@ def add_2d_scatter(ax, points, colors, title=None):
     ax.xaxis.set_major_formatter(ticker.NullFormatter())
     ax.yaxis.set_major_formatter(ticker.NullFormatter())
 
+    return
+
 
 # Generates the plot itself
-def plot_2d(points, y, title):
+def plot_2d(points, y, title: str):
     cmap = plt.get_cmap('tab10')
     colors = [cmap(i) for i in y]
     fig, ax = plt.subplots(figsize=(3, 3), facecolor="white", constrained_layout=True)
@@ -299,8 +313,10 @@ def plot_2d(points, y, title):
     add_2d_scatter(ax, points, colors)
     plt.show()
 
+    return
 
-def get_tsne(data):
+
+def get_tsne(data: DataContainer):
     # Now, we initialize a TSNE module with its own set of hyperparameters for how it will be "trained" to create a mapping between the 4d data and its 2d projection.
     t_sne = TSNE(
         n_components=2,
@@ -320,3 +336,20 @@ def get_tsne(data):
 
 #     # Generate the plot
 # plot_2d(S_t_sne.T, y, "TSNE (FuzzyART Labels)")
+
+
+# Generate a side-by-side comparison plot
+def plot_side_by_side_2d(x, y1, y2, t1, t2, ttop):
+    cmap = plt.get_cmap('tab10')
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6, 3), facecolor="white", constrained_layout=True)
+    fig.suptitle(ttop, size=16)
+    colors = [cmap(i) for i in y1]
+    add_2d_scatter(ax1, x, colors)
+    ax1.set_title(t1, size=16)
+
+    colors = [cmap(i) for i in y2]
+    add_2d_scatter(ax2, x, colors)
+    ax2.set_title(t2, size=16)
+    plt.show()
+
+# plot_side_by_side_2d(S_t_sne.T, y_hats, data["Label"], "FuzzyART", "Truth", "TSNE")
